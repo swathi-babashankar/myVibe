@@ -3,13 +3,16 @@
 // import viteLogo from './assets/vite.svg'
 // import heroImg from './assets/hero.png'
 import './App.css'
+import Navbar from './components/Navbar.jsx'
 
 function App() {
   // const [count, setCount] = useState(0)
 
   return (
     <>
-      <div className="g-signin2" data-onsuccess="onSignIn"></div>
+      <Navbar/>
+     {/* <div className="g-signin2" data-onsuccess="onSignIn"></div> */}
+      {/* <div class="g-signin2" data-onsuccess="onSignIn"></div> */}
     </>
   )
 }

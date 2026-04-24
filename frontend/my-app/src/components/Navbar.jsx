@@ -1,10 +1,11 @@
-import Login from './Login.jsx'
+import Login from './Login.jsx';
+import "./styles/Navbar.css"
 
 function Navbar(){
 
     return(
         <>
-        <nav >
+        <nav className='navbar'>
             <ul>
                 <li>
                     Subscriptions

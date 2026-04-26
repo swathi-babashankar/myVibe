@@ -4,5 +4,6 @@
     flex-direction: row;
     gap: 90px; 
     list-style: none;
+    justify-content: center;
 
 }

@@ -2,7 +2,6 @@
 .mainDiv{
     width: 450px;
     height: 450px;
-    /* border: #621bd4 3px 2px 2px; */
     border-radius: 2rem;
     margin-top: 50px;
 }
@@ -10,19 +9,24 @@
     width: 370px;
     height: 420px;
     margin-right: 50px;
-
 }
 
 .vdiv:hover{
     border-radius: 1rem;
     box-shadow: 2px 2px 2px #38240D;
     padding: 10px 10px 10px;
-
 }
 
 .vdiv span{
     color: #686057;
-    /* margin-bottom: 80px; */
+}
+
+.vdiv iframe{
+    border-radius: 0.8rem;
+}
+
+.videoFr{
+    margin-top: 20px;
 }
 
 .channelDet{

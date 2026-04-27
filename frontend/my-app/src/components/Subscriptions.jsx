@@ -12,7 +12,7 @@ useEffect(()=>{
 
    const token =  window.localStorage.getItem('accessToken');
     const subsApi = async() =>{
-
+//can add maxResults param to url, the default is only 5 items
     const favChannels = await fetch("https://www.googleapis.com/youtube/v3/subscriptions?part=snippet&mine=true", {
         method: 'GET',
         
@@ -22,7 +22,8 @@ useEffect(()=>{
             }
     })
 
-    console.log("list", favChannels.json());
+    const channelList = await favChannels.json()
+    console.log("list", channelList);
     
 }
 

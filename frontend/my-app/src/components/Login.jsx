@@ -9,7 +9,7 @@ function Login(){
     if (!window.google) return;
 
    const client =  window.google.accounts.oauth2.initTokenClient({
-      client_id: "997255180107-0rqj02e84b9qpftnc2psg3cl8r0na44e.apps.googleusercontent.com",
+      client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID,
       scope: "https://www.googleapis.com/auth/youtube.readonly",
       callback: handleLogin,
     });

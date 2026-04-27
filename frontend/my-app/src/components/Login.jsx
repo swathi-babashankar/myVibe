@@ -6,29 +6,25 @@ function Login(){
     useEffect(() => {
     if (!window.google) return;
 
-    window.google.accounts.id.initialize({
+   const client =  window.google.accounts.oauth2.initTokenClient({
       client_id: "997255180107-0rqj02e84b9qpftnc2psg3cl8r0na44e.apps.googleusercontent.com",
+      scope: "https://www.googleapis.com/auth/youtube.readonly",
       callback: handleLogin,
     });
 
-    window.google.accounts.id.renderButton(
-      document.getElementById("googleBtn"),
-      {
-        theme: "outline",
-        size: "large",
-        
-      }
-    );
+   document.getElementById("googleBtn").onclick = () => {
+    client.requestAccessToken();
+  };
   }, []);
 
   const handleLogin = async (response) =>  {
-    console.log("JWT token:", jwtDecode(response.credential));
-
+    console.log("JWT token:", response.access_token);
+    window.localStorage.setItem('accessToken', response.access_token);
     
   };
   
     return(    
-       <div id="googleBtn"></div>
+      <button id="googleBtn">Sign in with Google</button>
     )
 }
 

@@ -4,7 +4,8 @@
 // import heroImg from './assets/hero.png'
 import './App.css'
 import Navbar from './components/Navbar.jsx';
-import VideoDisplay from "./components/VideoDisplay.jsx"
+import VideoDisplay from "./components/VideoDisplay.jsx";
+import Subscription from './components/Subscriptions.jsx'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -15,6 +16,7 @@ function App() {
      {/* <div className="g-signin2" data-onsuccess="onSignIn"></div> */}
       {/* <div class="g-signin2" data-onsuccess="onSignIn"></div> */}
       <VideoDisplay/>
+      <Subscription/>
     </>
   )
 }

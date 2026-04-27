@@ -7,3 +7,8 @@
     justify-content: center;
 
 }
+
+.navbar li:hover{
+    cursor: pointer;
+
+}

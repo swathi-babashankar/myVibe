@@ -36,12 +36,12 @@ subsApi();
 
     return(
         <>
-        {/* <img src={props.url}/>
+        <img src={props.url}/>
         <h5>{props.channelName}</h5>
         <ul>
         <li>{props.subCount} </li>
         <li>{props.videoCount}</li>
-        </ul> */}
+        </ul>
         </>
     )
 }

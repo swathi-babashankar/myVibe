@@ -1,24 +1,24 @@
 import { useEffect } from "react"
 
 
-function Subscription({props}){
+function Subscription(items){
 
 //API request to google to get the subscription list(inside useEffect)
 //If it is necessary to give cred, then store the token in a reducer and call it here.
 //In sub page, this comp will be called in a loop(map)
 //https://www.googleapis.com/youtube/v3/subscriptions, {mine: true, }
 
-
+console.log("sub comb iteems", items);
 
 
     return(
         <>
-        {/* <img src={props.url}/>
-        <h5>{props.channelName}</h5>
-        <ul>
-        <li>{props.subCount} </li>
-        <li>{props.videoCount}</li>
-        </ul> */}
+        <img src={items.snippet.thumbnails.default.url}/>
+        <h5>{items.snippet.title}</h5>
+        {/* <ul> */}
+        {/* <li>{item.snippet.default.url} </li>
+        <li>{item.videoCount}</li> */}
+        {/* </ul>  */}
         </>
     )
 }

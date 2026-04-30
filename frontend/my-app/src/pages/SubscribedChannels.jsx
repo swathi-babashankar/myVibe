@@ -33,7 +33,7 @@ useEffect(()=>{
     const channelList = await favChannels.json();
     setSubChannels(channelList.items);
 
-    console.log("list", channelList);
+    console.log("list", channelList.items);
    }
 
    catch(err){
@@ -45,7 +45,7 @@ subsApi();
 
 }, [])
 
-
+console.log("subChsannel state",subChannels);
     return(
         <div className='scMainDiv'>
          {subChannels?.length !== 0 ? 

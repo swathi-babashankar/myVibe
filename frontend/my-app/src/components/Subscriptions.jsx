@@ -23,4 +23,7 @@ console.log("sub comb iteems", items);
     )
 }
 
+//https://www.googleapis.com/youtube/v3/channels?part=statistics&id=channel_id&key=your_key : try this to get subscriber count
+//go to channels in google apis, there are different params to be used to get sub count. view, likes etc
+
 export default Subscription;

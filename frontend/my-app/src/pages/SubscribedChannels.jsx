@@ -34,6 +34,7 @@ useEffect(()=>{
     setSubChannels(channelList.items);
 
     console.log("list", channelList.items);
+   
    }
 
    catch(err){

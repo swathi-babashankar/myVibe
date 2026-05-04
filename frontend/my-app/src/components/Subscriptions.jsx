@@ -1,24 +1,59 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 
-function Subscription(items){
+function Subscription(items, subscriberCount){
 
 //API request to google to get the subscription list(inside useEffect)
 //If it is necessary to give cred, then store the token in a reducer and call it here.
 //In sub page, this comp will be called in a loop(map)
 //https://www.googleapis.com/youtube/v3/subscriptions, {mine: true, }
+const [subCount, setSubCount] = useState(0);
 
-console.log("sub comb iteems", items);
+useEffect(() =>{
+    const token =  window.localStorage.getItem('accessToken');
+
+    const subscriberCount = async () =>{
+
+        try{
+             //can channelId be an array? if yes, then create another state var
+            const channelID = items.snippet.channelId;
+            console.log("ch id", channelID);
+
+            const subscriberCount = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelID}`, {
+            method: 'GET',
+        
+            headers: {
+                Authorization: `Bearer ${token}`,
+                Accept: "application/json"
+            }
+
+            })
+            console.log("sub api result", subscriberCount);
+
+            const result = await subscriberCount.json();
+            setSubCount(result.items?.[0]?.statistics?.subscriberCount);
+
+        }
+        catch(err){
+            console.log(err.message);
+
+        }
+
+    }
+
+    subscriberCount();
+
+}, [])
+
+console.log("sub comb items", items);
 
 
     return(
         <>
+        {/* test */}
         <img src={items.snippet.thumbnails.default.url}/>
         <h5>{items.snippet.title}</h5>
-        {/* <ul> */}
-        {/* <li>{item.snippet.default.url} </li>
-        <li>{item.videoCount}</li> */}
-        {/* </ul>  */}
+        <h5>{subCount} subscribers</h5>
         </>
     )
 }

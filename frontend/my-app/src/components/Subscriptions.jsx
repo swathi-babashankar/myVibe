@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
 
-function Subscription(items, subscriberCount){
+function Subscription({snippet}){
 
 //API request to google to get the subscription list(inside useEffect)
 //If it is necessary to give cred, then store the token in a reducer and call it here.
@@ -12,11 +12,11 @@ const [subCount, setSubCount] = useState(0);
 useEffect(() =>{
     const token =  window.localStorage.getItem('accessToken');
 
-    const subscriberCount = async () =>{
+    const fetchSubscriber = async () =>{
 
         try{
              //can channelId be an array? if yes, then create another state var
-            const channelID = items.snippet.channelId;
+            const channelID = snippet?.channelId;
             console.log("ch id", channelID);
 
             const subscriberCount = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelID}`, {
@@ -41,18 +41,18 @@ useEffect(() =>{
 
     }
 
-    subscriberCount();
+    fetchSubscriber();
 
-}, [])
+}, [snippet?.channelId])
 
-console.log("sub comb items", items);
+// console.log("sub comb items", items);
 
 
     return(
         <>
         {/* test */}
-        <img src={items.snippet.thumbnails.default.url}/>
-        <h5>{items.snippet.title}</h5>
+        <img src={snippet.thumbnails.default.url}/>
+        <h5>{snippet.title}</h5>
         <h5>{subCount} subscribers</h5>
         </>
     )

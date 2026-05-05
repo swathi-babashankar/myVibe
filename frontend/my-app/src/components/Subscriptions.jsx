@@ -16,7 +16,7 @@ useEffect(() =>{
 
         try{
              //can channelId be an array? if yes, then create another state var
-            const channelID = snippet?.channelId;
+            const channelID = snippet?.resourceId.channelId;
             console.log("ch id", channelID);
 
             const subscriberCount = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelID}`, {

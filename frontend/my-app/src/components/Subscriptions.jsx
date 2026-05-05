@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react"
+import './styles/subscription.css';
+import { useEffect, useState } from 'react';
 
 
 function Subscription({snippet}){
@@ -17,7 +18,7 @@ useEffect(() =>{
         try{
              //can channelId be an array? if yes, then create another state var
             const channelID = snippet?.resourceId.channelId;
-            console.log("ch id", channelID);
+            console.log("chnlIid", channelID);
 
             const subscriberCount = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelID}`, {
             method: 'GET',
@@ -44,9 +45,6 @@ useEffect(() =>{
     fetchSubscriber();
 
 }, [snippet?.channelId])
-
-// console.log("sub comb items", items);
-
 
     return(
         <div className="subSec">

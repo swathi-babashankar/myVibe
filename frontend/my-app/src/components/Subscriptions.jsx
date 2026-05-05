@@ -49,12 +49,12 @@ useEffect(() =>{
 
 
     return(
-        <>
+        <div className="subSec">
         {/* test */}
         <img src={snippet.thumbnails.default.url}/>
         <h5>{snippet.title}</h5>
         <h5>{subCount} subscribers</h5>
-        </>
+        </div>
     )
 }
 

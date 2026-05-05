@@ -1,3 +1,4 @@
+import './styles/subscribedChannels.css'
 import { useEffect, useState } from 'react'
 import Subscription from '../components/Subscriptions';
 

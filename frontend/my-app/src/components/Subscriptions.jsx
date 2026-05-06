@@ -9,6 +9,7 @@ function Subscription({snippet}){
 //In sub page, this comp will be called in a loop(map)
 //https://www.googleapis.com/youtube/v3/subscriptions, {mine: true, }
 const [subCount, setSubCount] = useState(0);
+// const accessToken = useSelector((state) => state.userAuth?.accessToken);
 
 useEffect(() =>{
     const token =  window.localStorage.getItem('accessToken');

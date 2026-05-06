@@ -10,17 +10,12 @@ export const userAuthSlice = createSlice({
     initialState,
     reducers: {
         login: (state, action) =>{
-            state.status = true
             state.accessToken = action.payload
-
-            action.type = "LOGGEDIN SUCCESSFULLY"
+            
         },
 
         logout: (state, action) =>{
-            state.status = false
             state.accessToken = null
-
-            action.type = "USER_LOGGEDOUT_SUCCESSFULLY"
 
         }
     }

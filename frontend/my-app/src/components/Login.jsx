@@ -1,11 +1,14 @@
 import { useEffect } from "react";
 import {jwtDecode } from 'jwt-decode';
 import './styles/login.css';
-// import  '../assets/search.png'
+import { useDispatch } from "react-redux";
+import { login } from "../features/user/userAuthSlice";
 
 function Login(){
 
-    useEffect(() => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
     if (!window.google) return;
 
    const client =  window.google.accounts.oauth2.initTokenClient({
@@ -21,7 +24,9 @@ function Login(){
 
   const handleLogin = async (response) =>  {
     console.log("JWT token:", response.access_token);
+    //
     window.localStorage.setItem('accessToken', response.access_token);
+    //  dispatch(login(response.access_token));
     
   };
   

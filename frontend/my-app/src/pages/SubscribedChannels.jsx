@@ -1,8 +1,7 @@
-import './styles/subscribedChannels.css'
-import { useEffect, useState } from 'react'
+import './styles/subscribedChannels.css';
+import { useEffect, useState } from 'react';
 import Subscription from '../components/Subscriptions';
-
-
+import { useSelector } from 'react-redux';
 
 
 function SubscribedChannels(){
@@ -12,6 +11,8 @@ function SubscribedChannels(){
 //dispatch cred
 //use it here 
 const [subChannels, setSubChannels] = useState([]); 
+// const accessToken = useSelector((state) => state.userAuth?.accessToken);
+console.log("useSel" , accessToken);
 
 useEffect(()=>{
 

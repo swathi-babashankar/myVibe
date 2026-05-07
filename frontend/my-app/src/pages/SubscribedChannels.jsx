@@ -11,8 +11,6 @@ function SubscribedChannels(){
 //dispatch cred
 //use it here 
 const [subChannels, setSubChannels] = useState([]); 
-// const accessToken = useSelector((state) => state.userAuth?.accessToken);
-console.log("useSel" , accessToken);
 
 useEffect(()=>{
 

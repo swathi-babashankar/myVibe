@@ -1,7 +1,6 @@
 import './styles/subscription.css';
 import { useEffect, useState } from 'react';
 
-
 function Subscription({snippet}){
 
 //API request to google to get the subscription list(inside useEffect)

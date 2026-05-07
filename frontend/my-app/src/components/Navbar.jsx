@@ -1,13 +1,16 @@
 import Login from './Login.jsx';
-import "./styles/Navbar.css"
+import "./styles/Navbar.css";
+import { useNavigate } from 'react-router-dom';
 
 function Navbar(){
+
+    const navigate = useNavigate();
 
     return(
         <>
         <nav className='navbar'>
             <ul>
-                <li>
+                <li role="button" onClick={() => navigate('/subscriptions')}>
                     Subscriptions
                 </li>
                 <li>
@@ -17,12 +20,11 @@ function Navbar(){
                     Youtube
                 </li>
                 <li>
-                   {/* */}
+                   {/* if user has already loggedin show profile icon, details and signout*/}
                    <Login/>
                 </li>
             </ul>
         </nav>
-        {/* <div className="g-signin2" data-onsuccess="onSignIn"></div>  */}
         </>
     )
 }

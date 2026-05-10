@@ -7,6 +7,7 @@ import { login } from "../features/user/userAuthSlice";
 function Login(){
 
   const dispatch = useDispatch();
+  
 
   useEffect(() => {
     if (!window.google) return;
@@ -17,14 +18,17 @@ function Login(){
       callback: handleLogin,
     });
 
+    //EXPIRES IN 3599 MS(1 HOUR)
    document.getElementById("googleBtn").onclick = () => {
-    client.requestAccessToken();
+      client.requestAccessToken();
   };
+
+  
   }, []);
 
   const handleLogin = async (response) =>  {
-    console.log("JWT token:", response.access_token);
-    //
+    console.log("JWT token:", response);
+    
     window.localStorage.setItem('accessToken', response.access_token);
     //  dispatch(login(response.access_token));
     

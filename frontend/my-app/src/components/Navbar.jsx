@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 function Navbar(){
 
     const navigate = useNavigate();
+    const token = window.localStorage.getItem("accessToken")
 
     return(
         <>
@@ -21,7 +22,8 @@ function Navbar(){
                 </li>
                 <li>
                    {/* if user has already loggedin show profile icon, details and signout*/}
-                   <Login/>
+                   {token ? <button type='button'>Profile</button> : <Login/>}
+                   
                 </li>
             </ul>
         </nav>

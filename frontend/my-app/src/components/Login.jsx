@@ -28,9 +28,12 @@ function Login(){
 
   const handleLogin = async (response) =>  {
     console.log("JWT token:", response);
-    
-    window.localStorage.setItem('accessToken', response.access_token);
+
+    window.localStorage.setItem("accessToken", response.access_token);
+    window.localStorage.setItem("expires_in", response.expires_in);
     //  dispatch(login(response.access_token));
+    
+    console.log();
     
   };
   

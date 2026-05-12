@@ -30,6 +30,9 @@ useEffect(()=>{
             }
     })
 
+   
+
+
     if(favChannels.status === 401){
         localStorage.removeItem("accessToken");
 
@@ -50,7 +53,7 @@ useEffect(()=>{
 
 subsApi();
 
-}, [subChannels])
+}, [])
 
 console.log("subChsannel state",subChannels);
     return(

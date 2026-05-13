@@ -32,9 +32,16 @@ function Login(){
     window.localStorage.setItem("accessToken", response.access_token);
     window.localStorage.setItem("expires_in", response.expires_in);
     //  dispatch(login(response.access_token));
-     let date = new Date.now()
+     let date =  Date.now()
      date = date + 3599000
-    
+    // date = 1778692081526 /1000
+    date = new Date(date);
+    let curr_date = new Date();
+
+    if(curr_date>date){
+      window.localStorage.removeItem("accessToken");
+      location.reload();
+      }
     console.log("current date" , date);
     
     

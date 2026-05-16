@@ -26,7 +26,7 @@ function Login(){
 
   const handleAutoLogout = () =>{
     //  dispatch(login(response.access_token));
-    let expiryTime = Number(window.localStorage.getItem("expired_in"));
+    let expiryTime = Number(window.localStorage.getItem("expires_in"));
      
     let curr_date = Date.now();
 

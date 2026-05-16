@@ -23,6 +23,22 @@ function Login(){
       client.requestAccessToken();
   };
 
+
+  const handleAutoLogout = () =>{
+    //  dispatch(login(response.access_token));
+    let expiryTime = Number(window.localStorage.getItem("expired_in"));
+     
+    let curr_date = Date.now();
+
+    if(curr_date > expiryTime * 1000){
+      window.localStorage.removeItem("accessToken");
+      window.localStorage.removeItem("expires_in")
+      location.reload();
+      console.log(expiryTime);
+      }
+  }
+
+  handleAutoLogout();
   
   }, []);
 
@@ -31,21 +47,11 @@ function Login(){
 
     window.localStorage.setItem("accessToken", response.access_token);
     window.localStorage.setItem("expires_in", response.expires_in);
-    //  dispatch(login(response.access_token));
-     let date =  Date.now()
-     date = date + 3599000
-    // date = 1778692081526 /1000
-    date = new Date(date);
-    let curr_date = new Date();
-
-    if(curr_date>date){
-      window.localStorage.removeItem("accessToken");
-      location.reload();
-      }
-    console.log("current date" , date);
-    
+     
     
   };
+
+
   
     return(    
       <button className="gsi-material-button" id="googleBtn">

@@ -30,13 +30,6 @@ useEffect(()=>{
             }
     })
 
-   
-
-
-    if(favChannels.status === 401){
-        localStorage.removeItem("accessToken");
-
-    }
 
     const channelList = await favChannels.json();
     setSubChannels(channelList.items);

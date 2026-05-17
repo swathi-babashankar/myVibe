@@ -6,6 +6,7 @@ function Navbar(){
 
     const navigate = useNavigate();
     const token = window.localStorage.getItem("accessToken")
+    
 
     return(
         <>
@@ -22,7 +23,7 @@ function Navbar(){
                 </li>
                 <li>
                    {/* if user has already loggedin show profile icon, details and signout*/}
-                   {token ? <button type='button'>Profile</button> : <Login/>}
+                   {token ? <button type='button' className='profile'>Profile</button> : <Login/>}
                    
                 </li>
             </ul>

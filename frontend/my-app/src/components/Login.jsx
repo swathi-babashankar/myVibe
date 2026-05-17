@@ -33,7 +33,7 @@ function Login(){
     if(curr_date > expiryTime * 1000){
       window.localStorage.removeItem("accessToken");
       window.localStorage.removeItem("expires_in")
-      location.reload();
+      // location.reload();
       console.log(expiryTime);
       }
   }
@@ -44,9 +44,10 @@ function Login(){
 
   const handleLogin = async (response) =>  {
     console.log("JWT token:", response);
-
+    
     window.localStorage.setItem("accessToken", response.access_token);
-    window.localStorage.setItem("expires_in", response.expires_in);
+    const expiry = Math.floor(Date.now() / 1000) + response.expires_in;
+    window.localStorage.setItem("expires_in",expiry );
      
     
   };

@@ -12,3 +12,13 @@
     cursor: pointer;
 
 }
+
+.navbar .profile{
+    border-radius: 100rem;
+    padding: 10px 8px ;
+    background: transparent;
+    border-color: #38240D;
+    color: #38240D;
+    font-weight: 600;
+    cursor: pointer;
+}

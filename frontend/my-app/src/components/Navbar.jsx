@@ -8,7 +8,7 @@ function Navbar(){
     const navigate = useNavigate();
     const token = window.localStorage.getItem("accessToken")
 
-    useEffect(() =>{
+ useEffect(() =>{
 
     const handleAutoLogout = () =>{
     
@@ -30,7 +30,7 @@ function Navbar(){
 
   handleAutoLogout();
 
-    },[])
+ },[])
     
 
     return(
@@ -44,7 +44,9 @@ function Navbar(){
                     About App
                 </li>
                 <li>
+                <a href='https://www.youtube.com/' className='youLink'>
                     Youtube
+                    </a>
                 </li>
                 <li>
                    {/* if user has already loggedin show profile icon, details and signout*/}

@@ -1,14 +1,11 @@
-import { useEffect } from "react";
-import {jwtDecode } from 'jwt-decode';
 import './styles/login.css';
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../features/user/userAuthSlice";
 
 function Login(){
 
   useEffect(() => {
-
-  console.log("useEff running");
 
     if (!window.google) return;
 

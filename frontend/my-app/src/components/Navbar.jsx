@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Login from './Login.jsx';
 import "./styles/Navbar.css";
 import { useNavigate } from 'react-router-dom';
@@ -6,6 +7,30 @@ function Navbar(){
 
     const navigate = useNavigate();
     const token = window.localStorage.getItem("accessToken")
+
+    useEffect(() =>{
+
+    const handleAutoLogout = () =>{
+    
+    
+    let expiryTime = Number(window.localStorage.getItem("expires_in"));
+    console.log(expiryTime);
+     
+    let curr_date = Math.floor(Date.now() / 1000);
+
+    if(curr_date > expiryTime)
+      {
+      window.localStorage.removeItem("accessToken");
+      window.localStorage.removeItem("expires_in")
+
+    //   location.reload();
+      console.log(expiryTime);
+      }
+  }
+
+  handleAutoLogout();
+
+    },[])
     
 
     return(

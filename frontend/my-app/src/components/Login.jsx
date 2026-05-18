@@ -6,10 +6,10 @@ import { login } from "../features/user/userAuthSlice";
 
 function Login(){
 
-  const dispatch = useDispatch();
-  
-
   useEffect(() => {
+
+  console.log("useEff running");
+
     if (!window.google) return;
 
    const client =  window.google.accounts.oauth2.initTokenClient({
@@ -23,23 +23,6 @@ function Login(){
       client.requestAccessToken();
   };
 
-
-  const handleAutoLogout = () =>{
-    //  dispatch(login(response.access_token));
-    let expiryTime = Number(window.localStorage.getItem("expires_in"));
-     
-    let curr_date = Date.now();
-
-    if(curr_date > expiryTime * 1000){
-      window.localStorage.removeItem("accessToken");
-      window.localStorage.removeItem("expires_in")
-      // location.reload();
-      console.log(expiryTime);
-      }
-  }
-
-  handleAutoLogout();
-  
   }, []);
 
   const handleLogin = async (response) =>  {
@@ -48,12 +31,9 @@ function Login(){
     window.localStorage.setItem("accessToken", response.access_token);
     const expiry = Math.floor(Date.now() / 1000) + response.expires_in;
     window.localStorage.setItem("expires_in",expiry );
-     
-    
+  
   };
 
-
-  
     return(    
       <button className="gsi-material-button" id="googleBtn">
         <div className="gsi-material-button-state"></div>

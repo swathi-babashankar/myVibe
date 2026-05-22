@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Login from './Login.jsx';
 import "./styles/Navbar.css";
 import { useNavigate } from 'react-router-dom';
@@ -6,7 +6,8 @@ import { useNavigate } from 'react-router-dom';
 function Navbar(){
 
     const navigate = useNavigate();
-    const token = window.localStorage.getItem("accessToken")
+    const [token, setToken] = useState(window.localStorage.getItem("accessToken"))
+    // const token = window.localStorage.getItem("accessToken")
 
  useEffect(() =>{
 
@@ -30,7 +31,7 @@ function Navbar(){
 
   handleAutoLogout();
 
- },[])
+ }, [token])
     
 
     return(

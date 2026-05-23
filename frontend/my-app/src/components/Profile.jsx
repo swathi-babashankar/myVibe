@@ -13,7 +13,9 @@ function Profile(){
 
     return(
         <div className="profileDiv">
-            
+            <input className="nameInput" value={}/>
+            <input className="email" value={}/>
+            <input className="phInput" value={} type='tel' />
 
 
         </div>
